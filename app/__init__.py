@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-
 db = SQLAlchemy() 
 migrate = Migrate() 
 
@@ -40,7 +39,7 @@ def create_app(ConfigClass):
     def delete_comic(id):  
       pass 
 
-    @app.route('/comics/<ind:id>', methods=['PUT'])
+    @app.route('/comics/<int:id>', methods=['PUT'])
     def  update_comic(id): 
       pass
 
