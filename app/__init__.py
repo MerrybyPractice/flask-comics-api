@@ -28,7 +28,7 @@ def create_app(ConfigClass):
 
     @app.route('/comics', methods=['POST'])  
     def create_comic(): 
-      comic_info = request.json or request.form 
+      comic_info = request.json or request.form or request.values
       comic = Comic(name=comic_info.get('title'), issues=comic_info.get('issues')) 
       db.session.add(comic) 
       db.session.commit() 
@@ -55,7 +55,7 @@ def create_app(ConfigClass):
 
     @app.route('/characters', methods=['POST'])  
     def create_character(): 
-      character_info=request.json or request.form 
+      character_info= request.json or request.form or request.values 
       character = Character(name=character_info.get('name'), comic_id=character_info.get('comic'))
       db.session.add(character) 
       db.session.commit() 
