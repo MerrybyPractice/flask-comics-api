@@ -29,7 +29,7 @@ def create_app(ConfigClass):
     @app.route('/comics', methods=['POST'])  
     def create_comic(): 
       comic_info = request.json or request.form or request.values
-      comic = Comic(name=comic_info.get('title'), issues=comic_info.get('issues')) 
+      comic = Comic(title=comic_info.get('title'), issues=comic_info.get('issues')) 
       db.session.add(comic) 
       db.session.commit() 
 
