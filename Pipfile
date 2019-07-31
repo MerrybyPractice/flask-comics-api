@@ -11,6 +11,7 @@ sqlalchemy = "*"
 flask-migrate = "*"
 python-dotenv = "*"
 pytest = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
