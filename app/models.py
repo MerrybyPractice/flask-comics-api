@@ -7,7 +7,7 @@ class Comic(db.Model):
   characters = db.relationship("Character", backref="comic", lazy=True)
 
   def to_dict(self): 
-    return{'id': self.id, 'title': self.title, 'issues': self.issues} 
+    return{'id': self.id, 'title': self.title, 'issues': self.issues, 'characters': [artist.to_dict() for artist in self.characters]} 
 
   def update(self, comic_info): 
     self.title = comic_info.get('title')
