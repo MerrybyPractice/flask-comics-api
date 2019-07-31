@@ -18,7 +18,7 @@ def create_app(ConfigClass):
 
     @app.route('/comics', methods=['GET'])
     def all_comics(): 
-      comics = [comic.to_dict for comic in Comic.query.all()] 
+      comics = [comic.to_dict() for comic in Comic.query.all()] 
       return jsonify(comics)
 
     @app.route('/comics/<int:id>', methods=['GET'])
